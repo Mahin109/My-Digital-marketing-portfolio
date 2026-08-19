@@ -265,7 +265,499 @@
         .about-card p:last-child {
             margin-bottom: 0;
         }
+<!-- ============================================================ -->
+<!-- START: "How I Work" Section                                 -->
+<!-- ============================================================ -->
+<section id="hiw-section" class="hiw-container">
+  <div class="hiw-wrapper">
+    
+    <!-- Section Header -->
+    <div class="hiw-header">
+      <h2 class="hiw-title">How I Work</h2>
+      <p class="hiw-subtitle">
+        Every business needs a different strategy. I build the roadmap around your business, audience, goals, and customer journey.
+      </p>
+    </div>
 
+    <!-- Business Type Selector Cards -->
+    <div class="hiw-cards-grid" role="tablist" aria-label="Business Type Selector">
+      
+      <button type="button" class="hiw-card hiw-card-active" data-business="ecommerce" role="tab" aria-selected="true" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🛒</span>
+        <span class="hiw-card-title">E-commerce</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="restaurant" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🍽️</span>
+        <span class="hiw-card-title">Restaurant / Food Business</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="local-service" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🛠️</span>
+        <span class="hiw-card-title">Local Service Business</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="lead-gen" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🎯</span>
+        <span class="hiw-card-title">Lead Generation Business</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="personal-brand" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🌟</span>
+        <span class="hiw-card-title">Personal Brand / Creator</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="education" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">🎓</span>
+        <span class="hiw-card-title">Online Course / Education</span>
+      </button>
+
+      <button type="button" class="hiw-card" data-business="skincare" role="tab" aria-selected="false" aria-controls="hiw-roadmap-container">
+        <span class="hiw-card-icon">✨</span>
+        <span class="hiw-card-title">Beauty / Skincare Business</span>
+      </button>
+
+    </div>
+
+    <!-- Roadmap Container -->
+    <div id="hiw-roadmap-container" class="hiw-roadmap-box" role="tabpanel">
+      <!-- Roadmap Content (Populated via JS) -->
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ------------------------------------------------------------ */
+  /* Isolated Scoped Styles for "How I Work" Section               */
+  /* Uses CSS Variables with fallbacks to match your site         */
+  /* ------------------------------------------------------------ */
+  
+  :root {
+    --hiw-bg: var(--bg-color, var(--background-dark, #0b0f17));
+    --hiw-card-bg: var(--card-bg, rgba(255, 255, 255, 0.03));
+    --hiw-card-hover-bg: rgba(255, 255, 255, 0.06);
+    --hiw-border: var(--border-color, rgba(255, 255, 255, 0.12));
+    --hiw-border-active: var(--accent-color, var(--primary-color, #3b82f6));
+    --hiw-text-main: var(--text-color, #f3f4f6);
+    --hiw-text-muted: var(--text-muted, #9ca3af);
+    --hiw-accent-glow: rgba(59, 130, 246, 0.25);
+  }
+
+  .hiw-container {
+    background-color: var(--hiw-bg);
+    color: var(--hiw-text-main);
+    padding: 80px 24px;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: inherit;
+  }
+
+  .hiw-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* Header */
+  .hiw-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hiw-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px 0;
+    color: var(--hiw-text-main);
+  }
+
+  .hiw-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--hiw-text-muted);
+    margin: 0;
+  }
+
+  /* Business Cards Grid */
+  .hiw-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .hiw-card {
+    background: var(--hiw-card-bg);
+    border: 1px solid var(--hiw-border);
+    border-radius: 12px;
+    padding: 20px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--hiw-text-main);
+    outline: none;
+    user-select: none;
+    position: relative;
+    backdrop-filter: blur(8px);
+  }
+
+  .hiw-card:hover {
+    background: var(--hiw-card-hover-bg);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .hiw-card-active,
+  .hiw-card-active:hover {
+    border-color: var(--hiw-border-active);
+    box-shadow: 0 0 0 1px var(--hiw-border-active), 0 8px 20px -6px var(--hiw-accent-glow);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .hiw-card-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .hiw-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Roadmap Container Box */
+  .hiw-roadmap-box {
+    background: var(--hiw-card-bg);
+    border: 1px solid var(--hiw-border);
+    border-radius: 16px;
+    padding: 40px;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.25s ease;
+  }
+
+  .hiw-roadmap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--hiw-border);
+  }
+
+  .hiw-roadmap-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hiw-roadmap-badge {
+    font-size: 1.5rem;
+  }
+
+  .hiw-roadmap-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--hiw-text-main);
+  }
+
+  .hiw-roadmap-count {
+    font-size: 0.85rem;
+    color: var(--hiw-text-muted);
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--hiw-border);
+  }
+
+  /* Step Timeline Grid */
+  .hiw-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .hiw-step-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--hiw-border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+  }
+
+  .hiw-step-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .hiw-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--hiw-border);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--hiw-border-active);
+  }
+
+  .hiw-step-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+    color: var(--hiw-text-main);
+  }
+
+  .hiw-step-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--hiw-text-muted);
+    margin: 0;
+  }
+
+  /* Fade Animation */
+  .hiw-fade-out {
+    opacity: 0;
+  }
+  
+  .hiw-fade-in {
+    opacity: 1;
+  }
+
+  /* ------------------------------------------------------------ */
+  /* Responsive Breakpoints                                      */
+  /* ------------------------------------------------------------ */
+  
+  @media (max-width: 1024px) {
+    .hiw-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hiw-container {
+      padding: 60px 20px;
+    }
+
+    .hiw-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .hiw-roadmap-box {
+      padding: 24px 20px;
+    }
+
+    .hiw-steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hiw-roadmap-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hiw-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hiw-card {
+      padding: 16px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    // Data definition for each business roadmap
+    const hiwData = {
+      "ecommerce": {
+        title: "E-commerce Strategy",
+        icon: "🛒",
+        steps: [
+          { num: "01", title: "Business & Product Research", desc: "Analyzing high-margin products, store economics, and unit margins to ensure scalable growth." },
+          { num: "02", title: "Customer & Competitor Research", desc: "Identifying target buyers, pain points, competitor ad angles, and key value propositions." },
+          { num: "03", title: "Tracking Setup", desc: "Setting up Meta Pixel, Conversions API (CAPI), and GA4 for accurate attribution." },
+          { num: "04", title: "Creative Strategy", desc: "Developing high-converting ad concepts, UGC frameworks, and visual assets." },
+          { num: "05", title: "Campaign Launch", desc: "Structuring prospecting (TOFU) and retargeting (BOFU) campaigns for optimal testing." },
+          { num: "06", title: "Data Analysis", desc: "Evaluating metrics like ROAS, CAC, CPA, CTR, and conversion rate across all funnels." },
+          { num: "07", title: "Optimization", desc: "Pruning low-performing creatives and reallocating budget toward winning angles." },
+          { num: "08", title: "Scaling", desc: "Expanding budgets vertically and horizontally while maintaining target profit margins." }
+        ]
+      },
+      "restaurant": {
+        title: "Restaurant / Food Business Strategy",
+        icon: "🍽️",
+        steps: [
+          { num: "01", title: "Business & Location Research", desc: "Evaluating radius targeting, foot-traffic potential, and regional dining trends." },
+          { num: "02", title: "Local Audience Research", desc: "Mapping demographic preferences, peak dining hours, and delivery trends." },
+          { num: "03", title: "Brand Awareness", desc: "Showcasing signature dishes and ambiance via high-quality video & visual ads." },
+          { num: "04", title: "Engagement Campaign", desc: "Building local excitement through interactive polls, contests, and social push." },
+          { num: "05", title: "Offer / Promotion Strategy", desc: "Crafting irresistible limited-time discounts or free items to drive first visits." },
+          { num: "06", title: "Lead / WhatsApp / Message Campaign", desc: "Capturing customer inquiries, table reservations, and direct order requests." },
+          { num: "07", title: "Retargeting", desc: "Re-engaging local visitors with seasonal menus, events, and special rewards." },
+          { num: "08", title: "Optimization", desc: "Refining ad spend around peak ordering days and highest-converting offers." }
+        ]
+      },
+      "local-service": {
+        title: "Local Service Business Strategy",
+        icon: "🛠️",
+        steps: [
+          { num: "01", title: "Business Research", desc: "Analyzing service offerings, pricing structures, and unique service guarantees." },
+          { num: "02", title: "Target Customer Research", desc: "Mapping local homeowner/business needs, urgent pain points, and budget expectations." },
+          { num: "03", title: "Local Audience Targeting", desc: "Geofencing specific zip codes and service radiuses to minimize wasted spend." },
+          { num: "04", title: "Awareness", desc: "Establishing local authority and trust through customer reviews and work showcases." },
+          { num: "05", title: "Lead Generation", desc: "Capturing instant booking requests, quote forms, and direct calls." },
+          { num: "06", title: "Retargeting", desc: "Staying top-of-mind with past website visitors who haven't requested a quote yet." },
+          { num: "07", title: "Optimization", desc: "Filtering out low-quality leads and adjusting keywords/ad copy for high intent." },
+          { num: "08", title: "Scaling", desc: "Expanding geographic reach into neighboring towns and adding complementary services." }
+        ]
+      },
+      "lead-gen": {
+        title: "Lead Generation Strategy",
+        icon: "🎯",
+        steps: [
+          { num: "01", title: "Offer Research", desc: "Crafting irresistible lead magnets, consultation offers, or free audits." },
+          { num: "02", title: "Audience Research", desc: "Defining high-intent buyer personas and professional decision-maker demographics." },
+          { num: "03", title: "Landing Page / Lead Form Strategy", desc: "Building high-converting funnels with frictionless multi-step forms." },
+          { num: "04", title: "Tracking Setup", desc: "Implementing server-side tracking, CRM integration, and conversion points." },
+          { num: "05", title: "Lead Campaign", desc: "Launching targeted paid search and social campaigns focused on quality volume." },
+          { num: "06", title: "Lead Quality Analysis", desc: "Auditing closed leads vs. junk leads with sales teams to refine targeting." },
+          { num: "07", title: "Retargeting", desc: "Nurturing non-converting leads through tailored follow-up ads and content." },
+          { num: "08", title: "Optimization & Scaling", desc: "Lowering Cost Per Qualified Lead (CPQL) while scaling daily media spend." }
+        ]
+      },
+      "personal-brand": {
+        title: "Personal Brand / Creator Strategy",
+        icon: "🌟",
+        steps: [
+          { num: "01", title: "Brand Research", desc: "Defining core positioning, unique story, voice, and long-term monetisation goals." },
+          { num: "02", title: "Audience Research", desc: "Identifying your ideal community members and content consumption habits." },
+          { num: "03", title: "Content Strategy", desc: "Planning high-value content pillars for short-form video, long-form, and posts." },
+          { num: "04", title: "Awareness", desc: "Amplifying top-performing organic posts to reach broader target audiences." },
+          { num: "05", title: "Engagement", desc: "Fostering active comment sections, DMs, and community discussions." },
+          { num: "06", title: "Audience Building", desc: "Converting social followers into owned email/SMS list subscribers." },
+          { num: "07", title: "Retargeting", desc: "Promoting digital products, memberships, or services to warm audiences." },
+          { num: "08", title: "Growth Optimization", desc: "Doubling down on highest-converting content formats and offer funnels." }
+        ]
+      },
+      "education": {
+        title: "Online Course / Education Strategy",
+        icon: "🎓",
+        steps: [
+          { num: "01", title: "Course & Offer Research", desc: "Structuring course curriculum, price points, bonuses, and student transformation promises." },
+          { num: "02", title: "Student Persona Research", desc: "Understanding career goals, skill gaps, and learning obstacles of target students." },
+          { num: "03", title: "Content Strategy", desc: "Developing educational lead magnets, free workshops, and value-first videos." },
+          { num: "04", title: "Awareness", desc: "Driving top-of-funnel traffic to webinars, masterclasses, or free guides." },
+          { num: "05", title: "Lead Generation", desc: "Capturing registrations and building automated email/SMS warming sequences." },
+          { num: "06", title: "Retargeting", desc: "Reminding warm leads about upcoming cohort deadlines, webinars, and bonuses." },
+          { num: "07", title: "Conversion Optimization", desc: "Improving sales page checkout flow, testimonials, and objection handling." },
+          { num: "08", title: "Scaling", desc: "Transitioning successful live launches into evergreen automated funnels." }
+        ]
+      },
+      "skincare": {
+        title: "Beauty / Skincare Strategy",
+        icon: "✨",
+        steps: [
+          { num: "01", title: "Product & Market Research", desc: "Highlighting key ingredients, clinical results, and skin problem solutions." },
+          { num: "02", title: "Customer Persona Research", desc: "Segmenting audiences by skin concerns, age groups, and routine preferences." },
+          { num: "03", title: "Creative Strategy", desc: "Producing before-and-after showcases, routine tutorials, and aesthetic UGC." },
+          { num: "04", title: "Awareness", desc: "Launching visual-first campaigns on Instagram, TikTok, and YouTube." },
+          { num: "05", title: "Engagement", desc: "Encouraging routine quizzes, influencer collaborations, and user feedback." },
+          { num: "06", title: "Sales / Lead Campaign", desc: "Driving traffic to starter bundles, routine quiz funnels, and core SKUs." },
+          { num: "07", title: "Retargeting", desc: "Showing cross-sells, replenishment reminders, and subscriber discounts." },
+          { num: "08", title: "Optimization & Scaling", desc: "Maximizing Customer Lifetime Value (LTV) and recurring subscription rates." }
+        ]
+      }
+    };
+
+    // Render roadmap implementation
+    function renderHIWRoadmap(key) {
+      const container = document.getElementById('hiw-roadmap-container');
+      const data = hiwData[key];
+      
+      if (!data || !container) return;
+
+      container.classList.add('hiw-fade-out');
+
+      setTimeout(() => {
+        let html = `
+          <div class="hiw-roadmap-header">
+            <div class="hiw-roadmap-title-group">
+              <span class="hiw-roadmap-badge">${data.icon}</span>
+              <h3 class="hiw-roadmap-heading">${data.title} Roadmap</h3>
+            </div>
+            <span class="hiw-roadmap-count">${data.steps.length} Strategic Steps</span>
+          </div>
+          <div class="hiw-steps-grid">
+        `;
+
+        data.steps.forEach(step => {
+          html += `
+            <div class="hiw-step-card">
+              <span class="hiw-step-num">${step.num}</span>
+              <h4 class="hiw-step-title">${step.title}</h4>
+              <p class="hiw-step-desc">${step.desc}</p>
+            </div>
+          `;
+        });
+
+        html += `</div>`;
+        container.innerHTML = html;
+        container.classList.remove('hiw-fade-out');
+        container.classList.add('hiw-fade-in');
+      }, 150);
+    }
+
+    // Event listeners for cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.hiw-card');
+      
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          const businessKey = this.getAttribute('data-business');
+          
+          cards.forEach(c => {
+            c.classList.remove('hiw-card-active');
+            c.setAttribute('aria-selected', 'false');
+          });
+
+          this.classList.add('hiw-card-active');
+          this.setAttribute('aria-selected', 'true');
+          
+          renderHIWRoadmap(businessKey);
+        });
+      });
+
+      // Initial load: Default to e-commerce
+      renderHIWRoadmap('ecommerce');
+    });
+  })();
+</script>
+<!-- ============================================================ -->
+<!-- END: "How I Work" Section                                   -->
+<!-- ============================================================ -->
         /* ==========================================================================
            3. SERVICES SECTION
            ========================================================================== */
