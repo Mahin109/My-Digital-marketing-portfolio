@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scalora Digital - We Grow Brands With Digital Marketing">
+    <title>Mamunur Rashid Mahin | Scalora Digital</title>
+    
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           COLOR PALETTE & CSS VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-dark: #0B1020;         /* Dark Navy Background */
+            --bg-card: #1E293B;         /* Secondary Dark Shade */
+            --primary: #F97316;         /* Primary Accent Orange */
+            --primary-hover: #FB923C;   /* Light Orange Accent */
+            --soft-accent: #FED7AA;     /* Peach/Cream Accent */
+            --text-main: #F8FAFC;       /* Off-White Text */
+            --text-muted: #94A3B8;      /* Muted Gray Text */
+            --border-color: #334155;    /* Subtle Border Gray */
+            --gold-accent: #D4AF37;     /* Gold Accent for Profile Border */
+            --transition: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           RESET & GLOBAL STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           BUTTONS & UI ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
+        }
+
+        /* ==========================================================================
+           HEADER & STICKY NAVBAR
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 16, 32, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.25rem 0;
+            transition: var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           1. HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            background: radial-gradient(circle at 50% 20%, rgba(249, 115, 22, 0.1) 0%, rgba(11, 16, 32, 1) 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==========================================================================
+           PROFILE IMAGE & ABOUT ME SECTION
+           ========================================================================== */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold-accent);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25), 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .about-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: var(--soft-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card .role-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================================================
+           3. SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(249, 115, 22, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           4. PORTFOLIO SECTION (Empty Placeholders)
+           ========================================================================== */
+        .placeholder-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .portfolio-placeholder-box {
+            border: 2px dashed var(--border-color);
+            background-color: rgba(30, 41, 59, 0.3);
+            border-radius: 12px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .portfolio-placeholder-box:hover {
+            border-color: var(--primary);
+            background-color: rgba(30, 41, 59, 0.6);
+        }
+
+        .placeholder-icon {
+            font-size: 2rem;
+            color: var(--text-muted);
+        }
+
+        .placeholder-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           5. CASE STUDIES SECTION (Empty Placeholders)
+           ========================================================================== */
+        .placeholder-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .case-study-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .case-study-img-placeholder {
+            border: 2px dashed var(--border-color);
+            background-color: rgba(11, 16, 32, 0.5);
+            border-radius: 8px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-line-placeholder {
+            height: 16px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            width: 75%;
+            margin-top: 0.5rem;
+        }
+
+        /* ==========================================================================
+           6. CLIENT REVIEWS SECTION (Empty Placeholders)
+           ========================================================================== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px dashed var(--border-color);
+            background-color: rgba(11, 16, 32, 0.5);
+        }
+
+        .text-line-placeholder {
+            height: 12px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .text-line-placeholder.short {
+            width: 60%;
+        }
+
+        /* ==========================================================================
+           7. PROCESS / HOW I WORK SECTION
+           ========================================================================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .process-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(249, 115, 22, 0.2);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .process-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--soft-accent);
+        }
+
+        .process-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           8. CONTACT SECTION
+           ========================================================================== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+        }
+
+        .social-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: var(--bg-card);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .social-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-item i {
+            font-size: 1.25rem;
+            color: var(--primary);
+            width: 24px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==========================================================================
+           9. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: #060913;
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .footer-social-icon:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.75rem; }
+            .services-grid, 
+            .placeholder-grid-3, 
+            .reviews-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .process-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-dark);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                display: none;
+            }
+
+            .nav-links.active { display: flex; }
+
+            .hero h1 { font-size: 2.25rem; }
+            .hero p { font-size: 1rem; }
+
+            .services-grid, 
+            .placeholder-grid-6,
+            .placeholder-grid-3, 
+            .reviews-grid, 
+            .process-grid,
+            .contact-wrapper { 
+                grid-template-columns: 1fr; 
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Scalora<span>Digital</span></a>
+            <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>We Grow Brands With <span class="highlight">Digital Marketing</span></h1>
+                    <p>Scalora Digital helps businesses grow with data-driven strategies, creative content, and high-performing ads.</p>
+                    <a href="#contact" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT ME SECTION -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="profile-container">
+                    <img src="./mahin.jpg.jpeg" alt="Mamunur Rashid Mahin Profile Photo" class="profile-image">
+                </div>
+                
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <p>The mind behind Scalora Digital</p>
+                </div>
+                <article class="about-card">
+                    <h3>Mamunur Rashid Mahin</h3>
+                    <div class="role-title">Digital Marketing Specialist</div>
+                    <p>Hello! I am a passionate digital marketing enthusiast currently focused on building hands-on skills in executing high-performing Facebook, Instagram, and LinkedIn ad campaigns.</p>
+                    <p>I specialize in helping e-commerce businesses build brand visibility and drive sales through targeted paid social strategies. Rather than relying on guesswork, I concentrate on understanding target audiences, structuring clean ad accounts, and creating continuous test plans to see what truly converts.</p>
+                    <p>My goal with Scalora Digital is to provide transparent, dedicated, and performance-focused digital marketing support to growing brands.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. SERVICES SECTION -->
+        <section id="services" class="section-padding" style="background-color: rgba(30, 41, 59, 0.2);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Services Offered</h2>
+                    <p>Tailored paid social media advertising solutions</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fab fa-facebook-f"></i></div>
+                        <h3>Facebook Ads</h3>
+                        <p>Targeted campaign setup, audience research, and ad creation designed to drive traffic and engagement for e-commerce brands.</p>
+                    </article>
+                    <!-- Service 2 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                        <h3>Instagram Ads</h3>
+                        <p>Visually engaging Story, Feed, and Reels ad setup tailored to capture attention and direct customers to your store.</p>
+                    </article>
+                    <!-- Service 3 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <h3>LinkedIn Ads</h3>
+                        <p>Professional campaign structuring targeting specific demographics, job titles, and industries for tailored outreach.</p>
+                    </article>
+                    <!-- Service 4 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fas fa-sliders"></i></div>
+                        <h3>Campaign Optimization</h3>
+                        <p>Ongoing monitoring, budget adjustments, and element testing to ensure ad budgets are spent effectively.</p>
+                    </article>
+                    <!-- Service 5 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Social Media Strategy</h3>
+                        <p>Developing clear marketing approaches aligned with your business goals before launching paid campaigns.</p>
+                    </article>
+                    <!-- Service 6 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Performance Reporting</h3>
+                        <p>Clear, straightforward reporting detailing campaign metrics, spend, and baseline observations for continuous improvement.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PORTFOLIO SECTION -->
+        <section id="portfolio" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Portfolio</h2>
+                    <p>A glimpse of the work I've done</p>
+                </div>
+                <div class="placeholder-grid-6">
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                    <div class="portfolio-placeholder-box">
+                        <i class="far fa-image placeholder-icon"></i>
+                        <span class="placeholder-text">Add Image Here</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CASE STUDIES SECTION -->
+        <section id="case-studies" class="section-padding" style="background-color: rgba(30, 41, 59, 0.2);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Case Studies</h2>
+                    <p>Real campaigns, real results (coming soon)</p>
+                </div>
+                <div class="placeholder-grid-3">
+                    <article class="case-study-card">
+                        <div class="case-study-img-placeholder">
+                            <i class="far fa-image placeholder-icon"></i>
+                            <span class="placeholder-text">Add Image Here</span>
+                        </div>
+                        <div class="title-line-placeholder"></div>
+                    </article>
+                    <article class="case-study-card">
+                        <div class="case-study-img-placeholder">
+                            <i class="far fa-image placeholder-icon"></i>
+                            <span class="placeholder-text">Add Image Here</span>
+                        </div>
+                        <div class="title-line-placeholder"></div>
+                    </article>
+                    <article class="case-study-card">
+                        <div class="case-study-img-placeholder">
+                            <i class="far fa-image placeholder-icon"></i>
+                            <span class="placeholder-text">Add Image Here</span>
+                        </div>
+                        <div class="title-line-placeholder"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CLIENT REVIEWS SECTION -->
+        <section id="reviews" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Client Reviews</h2>
+                    <p>What clients say (coming soon)</p>
+                </div>
+                <div class="reviews-grid">
+                    <article class="review-card">
+                        <div class="avatar-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder short"></div>
+                    </article>
+                    <article class="review-card">
+                        <div class="avatar-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder short"></div>
+                    </article>
+                    <article class="review-card">
+                        <div class="avatar-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder"></div>
+                        <div class="text-line-placeholder short"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PROCESS / HOW I WORK SECTION -->
+        <section id="process" class="section-padding" style="background-color: rgba(30, 41, 59, 0.2);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How I Work</h2>
+                    <p>A structured approach to managing your campaigns</p>
+                </div>
+                <div class="process-grid">
+                    <article class="process-card">
+                        <div class="step-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>Understanding your business, target audience, brand goals, and current social media presence.</p>
+                    </article>
+                    <article class="process-card">
+                        <div class="step-number">02</div>
+                        <h3>Strategy</h3>
+                        <p>Developing an initial campaign structure, defining target audiences, and planning ad variations.</p>
+                    </article>
+                    <article class="process-card">
+                        <div class="step-number">03</div>
+                        <h3>Execution</h3>
+                        <p>Setting up campaigns on ad platforms with accurate pixel tracking, budgets, and creative assets.</p>
+                    </article>
+                    <article class="process-card">
+                        <div class="step-number">04</div>
+                        <h3>Reporting</h3>
+                        <p>Tracking performance metrics, analyzing outcomes, and delivering clear summary reports.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CONTACT SECTION -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>Let's discuss how we can grow your brand</p>
+                </div>
+                <div class="contact-wrapper">
+                    <!-- Info & Social Links -->
+                    <div class="contact-info">
+                        <div>
+                            <h3>Connect With Scalora Digital</h3>
+                            <p>Feel free to reach out via email or direct message on social media platforms.</p>
+                        </div>
+                        <div class="social-links-list">
+                            <a href="mailto:mdmahmudmahin2044@gmail.com" class="social-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>mdmahmudmahin2044@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mamunur-mahin-98a831400" target="_blank" rel="noopener noreferrer" class="social-item">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61576379832469" target="_blank" rel="noopener noreferrer" class="social-item">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook Page</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form UI -->
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Message UI submitted successfully.');">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#home" class="logo">Scalora<span>Digital</span></a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">We Grow Brands With Digital Marketing</p>
+                </div>
+                
+                <nav class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#case-studies">Case Studies</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/mamunur-mahin-98a831400" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61576379832469" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Scalora Digital (Mamunur Rashid Mahin). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on menu item click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Dynamic Active Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
