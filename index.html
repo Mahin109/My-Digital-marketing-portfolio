@@ -795,8 +795,81 @@
            ========================================================================== -->
 
 	
+
 <style>
-/* Scoped Review Submit Styles */
+/* Testimonial Cards */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background: linear-gradient(135deg, #0f172a, #131c2e);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 14px;
+    padding: 28px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.testimonial-quote-icon {
+    color: #38bdf8;
+    font-size: 20px;
+    margin-bottom: 14px;
+    opacity: 0.7;
+}
+
+.testimonial-text {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.testimonial-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f97316, #38bdf8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f172a;
+    flex-shrink: 0;
+}
+
+.testimonial-info h4 {
+    font-size: 15px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.testimonial-info span {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Review Submit Form */
 .review-submit-wrapper {
     max-width: 700px;
     margin: 50px auto 0;
@@ -877,8 +950,7 @@
         grid-template-columns: 1fr;
     }
 }
-</style>
-	
+</style>	
         <style>
         .services-grid {
             display: grid;
@@ -1420,7 +1492,7 @@
         <section id="home" class="hero">
 			
             <div class="container">
-				<p style= "text-color: #F97316; ">Scalora Digital</p>
+				<p class="py-4">Scalora Digital</p>
                 <div class="hero-content">
 					
                     <h1>We Grow Brands With <span class="highlight">Digital Marketing</span></h1>
@@ -1801,23 +1873,106 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-		<div class="review-submit-wrapper">
-    <div class="review-submit-box">
-        <h3>Worked With Me? Share Your Experience</h3>
-        <p>Your feedback helps other clients trust the process. It only takes a minute.</p>
+		<section id="testimonials" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Clients Say</h2>
+            <p>Real feedback from businesses I've worked with</p>
+        </div>
 
-        <form id="review-form" class="review-form" action="https://formspree.io/f/moearqzv" method="POST">
-            <div class="review-form-row">
-                <input type="text" name="client_name" placeholder="Your Name" required>
-                <input type="text" name="client_business" placeholder="Business / Company Name" required>
+        <div class="testimonial-grid">
+
+            <!-- Review 1 - Bangladeshi Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">
+                    Mahin আমাদের e-commerce পেজের ফেসবুক ক্যাম্পেইনগুলো একদম নতুন করে সাজিয়ে দিয়েছে। CPA আগের চেয়ে অনেক কমে গেছে এবং সেলস বেড়েছে দ্রুত।
+                </p>
+                <div class="testimonial-footer">
+                    <div class="testimonial-avatar">RS</div>
+                    <div class="testimonial-info">
+                        <h4>Rafiul Sarker</h4>
+                        <span>Owner, Fashion Store — Dhaka, Bangladesh</span>
+                    </div>
+                </div>
             </div>
-            <textarea name="review_text" placeholder="Write your review here..." required></textarea>
-            <input type="hidden" name="_subject" value="New Client Review - Scalora Digital">
-            <button type="submit" class="btn btn-primary">Submit Review</button>
-            <p id="review-status"></p>
-        </form>
+
+            <!-- Review 2 - Foreign Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">
+                    Working with Mahin was a great experience. He clearly explained the ad performance every step of the way and helped us scale profitably without wasting budget.
+                </p>
+                <div class="testimonial-footer">
+                    <div class="testimonial-avatar">JW</div>
+                    <div class="testimonial-info">
+                        <h4>James Walker</h4>
+                        <span>Founder, Home Essentials Co. — USA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 - Bangladeshi Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">
+                    যোগাযোগ খুবই স্মুথ ছিল এবং কাজের প্রতি সততা আছে। ক্যাম্পেইন রিপোর্টিং ও অপটিমাইজেশন নিয়ে বেশ প্রফেশনাল কাজ করেছে।
+                </p>
+                <div class="testimonial-footer">
+                    <div class="testimonial-avatar">NA</div>
+                    <div class="testimonial-info">
+                        <h4>Nusrat Akter</h4>
+                        <span>Founder, Beauty Brand — Chattogram, Bangladesh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 4 - Foreign Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">
+                    Very responsive and data-driven. He optimized our Instagram ads and the ROAS improved noticeably within the first couple of weeks.
+                </p>
+                <div class="testimonial-footer">
+                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-info">
+                        <h4>Sarah Mitchell</h4>
+                        <span>Marketing Lead, Glow Skincare — UK</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Submit Your Own Review -->
+        <div class="review-submit-wrapper">
+            <div class="review-submit-box">
+                <h3>Worked With Me? Share Your Experience</h3>
+                <p>Your feedback helps other clients trust the process. It only takes a minute.</p>
+
+                <form id="review-form" class="review-form" action="https://formspree.io/f/moearqzv" method="POST">
+                    <div class="review-form-row">
+                        <input type="text" name="client_name" placeholder="Your Name" required>
+                        <input type="text" name="client_business" placeholder="Business / Company Name" required>
+                    </div>
+                    <textarea name="review_text" placeholder="Write your review here..." required></textarea>
+                    <input type="hidden" name="_subject" value="New Client Review - Scalora Digital">
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                    <p id="review-status"></p>
+                </form>
+            </div>
+        </div>
+
     </div>
-</div>
+</section>
 
 
 <script>
@@ -1855,9 +2010,6 @@ reviewForm.addEventListener("submit", async function (e) {
     btn.textContent = "Submit Review";
 });
 </script>
-
-
-
 
         
 
