@@ -795,6 +795,89 @@
            ========================================================================== -->
 
 	
+<style>
+/* Scoped Review Submit Styles */
+.review-submit-wrapper {
+    max-width: 700px;
+    margin: 50px auto 0;
+}
+
+.review-submit-box {
+    background: linear-gradient(135deg, #0f172a, #131c2e);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+}
+
+.review-submit-box h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.review-submit-box p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.review-form {
+    text-align: left;
+}
+
+.review-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    background: #0a1120;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.review-form input::placeholder,
+.review-form textarea::placeholder {
+    color: #64748b;
+}
+
+.review-form textarea {
+    min-height: 110px;
+    resize: vertical;
+    margin-bottom: 18px;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+.review-form button {
+    width: 100%;
+}
+
+#review-status {
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .review-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 	
         <style>
         .services-grid {
@@ -1335,9 +1418,10 @@
     <main>
         <!-- 1. HERO SECTION -->
         <section id="home" class="hero">
+			<p style="orange";>Scalora Digital</p>
             <div class="container">
                 <div class="hero-content">
-					<p class="highlight">Scalora Digital</p>
+					
                     <h1>We Grow Brands With <span class="highlight">Digital Marketing</span></h1>
                    
                     <a href="#home" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
@@ -1713,7 +1797,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-   
+
+
+
+		<div class="review-submit-wrapper">
+    <div class="review-submit-box">
+        <h3>Worked With Me? Share Your Experience</h3>
+        <p>Your feedback helps other clients trust the process. It only takes a minute.</p>
+
+        <form id="review-form" class="review-form" action="https://formspree.io/f/moearqzv" method="POST">
+            <div class="review-form-row">
+                <input type="text" name="client_name" placeholder="Your Name" required>
+                <input type="text" name="client_business" placeholder="Business / Company Name" required>
+            </div>
+            <textarea name="review_text" placeholder="Write your review here..." required></textarea>
+            <input type="hidden" name="_subject" value="New Client Review - Scalora Digital">
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+            <p id="review-status"></p>
+        </form>
+    </div>
+</div>
+
+
+<script>
+const reviewForm = document.getElementById("review-form");
+const reviewStatus = document.getElementById("review-status");
+
+reviewForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(reviewForm);
+    const btn = reviewForm.querySelector("button[type=submit]");
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+
+    try {
+        const response = await fetch(reviewForm.action, {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            reviewStatus.textContent = "✅ Thank you! Your review has been submitted.";
+            reviewStatus.style.color = "#4ade80";
+            reviewForm.reset();
+        } else {
+            reviewStatus.textContent = "❌ Something went wrong, please try again.";
+            reviewStatus.style.color = "#f87171";
+        }
+    } catch (error) {
+        reviewStatus.textContent = "❌ Something went wrong, please try again.";
+        reviewStatus.style.color = "#f87171";
+    }
+
+    btn.disabled = false;
+    btn.textContent = "Submit Review";
+});
+</script>
 
 
 
