@@ -628,148 +628,7 @@
            3. SERVICES SECTION
            ========================================================================== -->
 
-	<style>
-		/* ================================
-   CLIENT REVIEWS
-================================ */
-
-.reviews-section {
-  padding: 100px 20px;
-  background: #f8fafc;
-}
-
-.reviews-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.reviews-header {
-  text-align: center;
-  margin-bottom: 55px;
-}
-
-.reviews-label {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-  opacity: 0.7;
-}
-
-.reviews-title {
-  font-size: clamp(32px, 5vw, 52px);
-  margin: 0 0 15px;
-  font-weight: 800;
-}
-
-.reviews-subtitle {
-  max-width: 600px;
-  margin: auto;
-  font-size: 16px;
-  line-height: 1.7;
-  opacity: 0.7;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.review-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.review-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
-}
-
-.review-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.review-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 18px;
-  background: #111827;
-  color: #ffffff;
-}
-
-.review-top h3 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-
-.review-top span {
-  font-size: 13px;
-  opacity: 0.6;
-}
-
-.review-rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.review-rating span {
-  letter-spacing: 2px;
-  font-size: 17px;
-}
-
-.review-rating strong {
-  font-size: 14px;
-}
-
-.review-text {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.8;
-  opacity: 0.78;
-}
-
-
-/* Tablet */
-@media (max-width: 900px) {
-  .reviews-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-/* Mobile */
-@media (max-width: 600px) {
-  .reviews-section {
-    padding: 70px 16px;
-  }
-
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .review-card {
-    padding: 23px;
-  }
-}
-
-		</style>
-
+	
 	
         <style>
         .services-grid {
@@ -1178,6 +1037,188 @@
             }
         }
     </style>
+
+
+	
+<style>
+
+/* ==========================================
+   CLIENT REVIEWS
+========================================== */
+
+.client-reviews-section {
+  background: #070b14;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Label */
+.reviews-label {
+  display: inline-block;
+  color: #5ecbff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+/* Title */
+.reviews-title {
+  color: #ffffff;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* Subtitle */
+.reviews-subtitle {
+  color: #8f9aaa;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+/* ==========================================
+   REVIEW CARD
+========================================== */
+
+.review-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.055),
+    rgba(255,255,255,0.015)
+  );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  transition: all 0.35s ease;
+
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(94,203,255,0.35);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.35),
+    0 0 30px rgba(94,203,255,0.08);
+}
+
+
+/* ==========================================
+   STARS
+========================================== */
+
+.review-stars {
+  color: #ffc857;
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   REVIEW TEXT
+========================================== */
+
+.review-text {
+  color: #c7ced8;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   CLIENT
+========================================== */
+
+.review-client {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+
+/* Avatar */
+.client-avatar {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #ffc857,
+    #5ecbff
+  );
+
+  color: #07101d;
+
+  font-weight: 800;
+  font-size: 14px;
+}
+
+
+/* Name */
+.client-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+
+  margin: 0 0 3px;
+}
+
+
+/* Role */
+.client-role {
+  color: #7f8b9d;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+
+  .client-reviews-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .review-card {
+    padding: 25px;
+  }
+
+  .reviews-title {
+    font-size: 34px;
+  }
+
+  .review-text {
+    font-size: 15px;
+  }
+
+}
+
+</style>
+	
 </head>
 <body>
 
@@ -1577,37 +1618,109 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <!-- 6. CLIENT REVIEWS SECTION -->
        
-        <!-- 7. PROCESS / HOW I WORK SECTION -->
-        <section id="process" class="section-padding" style="background-color: rgba(30, 41, 59, 0.2);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How I Work</h2>
-                    <p>A structured approach to managing your campaigns</p>
-                </div>
-                <div class="process-grid">
-                    <article class="process-card">
-                        <div class="step-number">01</div>
-                        <h3>Discovery</h3>
-                        <p>Understanding your business, target audience, brand goals, and current social media presence.</p>
-                    </article>
-                    <article class="process-card">
-                        <div class="step-number">02</div>
-                        <h3>Strategy</h3>
-                        <p>Developing an initial campaign structure, defining target audiences, and planning ad variations.</p>
-                    </article>
-                    <article class="process-card">
-                        <div class="step-number">03</div>
-                        <h3>Execution</h3>
-                        <p>Setting up campaigns on ad platforms with accurate pixel tracking, budgets, and creative assets.</p>
-                    </article>
-                    <article class="process-card">
-                        <div class="step-number">04</div>
-                        <h3>Reporting</h3>
-                        <p>Tracking performance metrics, analyzing outcomes, and delivering clear summary reports.</p>
-                    </article>
-                </div>
+       <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Client Reviews Section -->
+<section class="client-reviews-section py-5">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="text-center mb-5">
+      <span class="reviews-label">CLIENT REVIEWS</span>
+      <h2 class="reviews-title">What My Clients Say</h2>
+      <p class="reviews-subtitle">
+        Real feedback from businesses I've worked with.
+      </p>
+    </div>
+
+    <!-- Reviews Row -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- Review Card 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="review-card h-100">
+
+          <div class="review-stars">
+            ★ ★ ★ ★ ★
+          </div>
+
+          <p class="review-text">
+            "Working with Mahin was a great experience. He understood our
+            business goals and created a clear strategy that actually made sense
+            for our audience."
+          </p>
+
+          <div class="review-client">
+            <div class="client-avatar">JD</div>
+
+            <div>
+              <h5 class="client-name">John Doe</h5>
+              <span class="client-role">Business Owner</span>
             </div>
-        </section>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Review Card 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="review-card h-100">
+
+          <div class="review-stars">
+            ★ ★ ★ ★ ★
+          </div>
+
+          <p class="review-text">
+            "Very professional and easy to communicate with. The campaign
+            strategy was well planned and the results were better than we
+            expected."
+          </p>
+
+          <div class="review-client">
+            <div class="client-avatar">SM</div>
+
+            <div>
+              <h5 class="client-name">Sarah Miller</h5>
+              <span class="client-role">E-commerce Brand</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Review Card 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="review-card h-100">
+
+          <div class="review-stars">
+            ★ ★ ★ ★ ★
+          </div>
+
+          <p class="review-text">
+            "Mahin was very focused on understanding the customer journey
+            instead of simply running ads. I really liked his approach and
+            attention to detail."
+          </p>
+
+          <div class="review-client">
+            <div class="client-avatar">MK</div>
+
+            <div>
+              <h5 class="client-name">Michael Kim</h5>
+              <span class="client-role">Restaurant Owner</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        
 
         <!-- 8. CONTACT SECTION -->
         <section id="contact" class="section-padding">
