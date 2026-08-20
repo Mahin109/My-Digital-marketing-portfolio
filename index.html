@@ -14,6 +14,11 @@
     <!-- Font Awesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+	<!-- Bootstrap 5.3 CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
     <style>
         /* ==========================================================================
            COLOR PALETTE & CSS VARIABLES
@@ -1256,7 +1261,7 @@
         <div class="d-flex justify-content-center">
             <a href="https://sites.google.com/view/mamunur-rashid-mahin/home"
                class="btn btn-primary">
-                View Case Study <i class="fas fa-arrow-right"></i>
+                View Portfolio <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
@@ -1268,7 +1273,7 @@
 
         <div class="section-header text-center">
             <h2>Case Studies</h2>
-            <p>See How We Turn Ideas Into Results</p>
+            <p>Explore Our success stories</p>
         </div>
 
         <div class="d-flex justify-content-center text-center">
@@ -1506,55 +1511,60 @@ document.addEventListener("DOMContentLoaded", function () {
         
 
         <!-- 8. CONTACT SECTION -->
-        <section id="contact" class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Get In Touch</h2>
-                    <p>Let's discuss how we can grow your brand</p>
-                </div>
-                <div class="contact-wrapper">
-                    <!-- Info & Social Links -->
-                    <div class="contact-info">
-                        <div>
-                            <h3>Connect With Scalora Digital</h3>
-                            <p>Feel free to reach out via email or direct message on social media platforms.</p>
-                        </div>
-                        <div class="social-links-list">
-                            <a href="mailto:mdmahmudmahin2044@gmail.com" class="social-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>mdmahmudmahin2044@gmail.com</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/mamunur-mahin-98a831400" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-linkedin-in"></i>
-                                <span>LinkedIn Profile</span>
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61576379832469" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-facebook-f"></i>
-                                <span>Facebook Page</span>
-                            </a>
-                        </div>
-                    </div>
+        <!-- Interactive Form UI -->
+<form id="contact-form" class="contact-form" action="https://formspree.io/f/moearqzv" method="POST">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+    </div>
+    <input type="hidden" name="_subject" value="নতুন মেসেজ - Scalora Digital Portfolio">
+    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+    <p id="form-status" style="margin-top: 10px; text-align: center;"></p>
+</form>
 
-                    <!-- Interactive Form UI -->
-                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Message UI submitted successfully.');">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="How can I help you?" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+<script>
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const button = form.querySelector("button[type=submit]");
+    button.disabled = true;
+    button.textContent = "Sending...";
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            status.textContent = "✅ Thank you! Your message has been sent.";
+            status.style.color = "#4ade80";
+            form.reset();
+        } else {
+            status.textContent = "❌কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন।";
+            status.style.color = "#f87171";
+        }
+    } catch (error) {
+        status.textContent = "❌ Thank you! Your message has been sent.";
+        status.style.color = "#f87171";
+    }
+
+    button.disabled = false;
+    button.textContent = "Send Message";
+});
+</script>
 
     <!-- 9. FOOTER -->
     <footer class="footer">
@@ -1628,5 +1638,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	
 </body>
 </html>
