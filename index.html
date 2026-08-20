@@ -822,6 +822,146 @@
             font-size: 0.9rem;
         }
 
+
+			/* ================================
+   CLIENT REVIEWS
+================================ */
+
+.reviews-section {
+  padding: 100px 20px;
+  background: #f8fafc;
+}
+
+.reviews-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.reviews-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.reviews-title {
+  font-size: clamp(32px, 5vw, 52px);
+  margin: 0 0 15px;
+  font-weight: 800;
+}
+
+.reviews-subtitle {
+  max-width: 600px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  background: #111827;
+  color: #ffffff;
+}
+
+.review-top h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.review-top span {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.review-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.review-rating span {
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+
+.review-rating strong {
+  font-size: 14px;
+}
+
+.review-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0.78;
+}
+
+
+/* Tablet */
+@media (max-width: 900px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+  .reviews-section {
+    padding: 70px 16px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: 23px;
+  }
+}
+
         /* ==========================================================================
            8. CONTACT SECTION
            ========================================================================== */
@@ -1431,35 +1571,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
 
         <!-- 6. CLIENT REVIEWS SECTION -->
-        <section id="reviews" class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Client Reviews</h2>
-                    <p>What clients say (coming soon)</p>
-                </div>
-                <div class="reviews-grid">
-                    <article class="review-card">
-                        <div class="avatar-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder short"></div>
-                    </article>
-                    <article class="review-card">
-                        <div class="avatar-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder short"></div>
-                    </article>
-                    <article class="review-card">
-                        <div class="avatar-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder"></div>
-                        <div class="text-line-placeholder short"></div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
+       
         <!-- 7. PROCESS / HOW I WORK SECTION -->
         <section id="process" class="section-padding" style="background-color: rgba(30, 41, 59, 0.2);">
             <div class="container">
