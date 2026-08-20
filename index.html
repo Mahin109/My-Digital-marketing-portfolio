@@ -749,43 +749,6 @@
             margin-top: 0.5rem;
         }
 
-        /* ==========================================================================
-           6. CLIENT REVIEWS SECTION (Empty Placeholders)
-           ========================================================================== */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .review-card {
-            background-color: var(--bg-card);
-            border: 1px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .avatar-placeholder {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px dashed var(--border-color);
-            background-color: rgba(11, 16, 32, 0.5);
-        }
-
-        .text-line-placeholder {
-            height: 12px;
-            background-color: var(--border-color);
-            border-radius: 4px;
-            width: 100%;
-        }
-
-        .text-line-placeholder.short {
-            width: 60%;
-        }
 
         /* ==========================================================================
            7. PROCESS / HOW I WORK SECTION
@@ -1042,18 +1005,23 @@
 	
 <style>
 
-/* ==========================================
-   CLIENT REVIEWS
-========================================== */
+/* =========================================================
+   CLIENT REVIEWS — FULLY SCOPED CSS
+   This CSS affects ONLY the Client Reviews section
+========================================================= */
 
 .client-reviews-section {
-  background: dark;
+  background-color: #070b14;
   position: relative;
   overflow: hidden;
 }
 
-/* Label */
-.reviews-label {
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.client-reviews-section .reviews-label {
   display: inline-block;
   color: #5ecbff;
   font-size: 13px;
@@ -1062,16 +1030,24 @@
   margin-bottom: 12px;
 }
 
-/* Title */
-.reviews-title {
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.client-reviews-section .reviews-title {
   color: #ffffff;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 800;
   margin-bottom: 12px;
 }
 
-/* Subtitle */
-.reviews-subtitle {
+
+/* =========================================================
+   SECTION SUBTITLE
+========================================================= */
+
+.client-reviews-section .reviews-subtitle {
   color: #8f9aaa;
   font-size: 16px;
   max-width: 600px;
@@ -1079,44 +1055,52 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    REVIEW CARD
-========================================== */
+========================================================= */
 
-.review-card {
+.client-reviews-section .review-card {
   background: linear-gradient(
     145deg,
-    rgba(255,255,255,0.055),
-    rgba(255,255,255,0.015)
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.015)
   );
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   border-radius: 20px;
 
   padding: 30px;
 
-  transition: all 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 
   position: relative;
 }
 
-.review-card:hover {
+
+/* =========================================================
+   REVIEW CARD HOVER
+========================================================= */
+
+.client-reviews-section .review-card:hover {
   transform: translateY(-8px);
 
-  border-color: rgba(94,203,255,0.35);
+  border-color: rgba(94, 203, 255, 0.35);
 
   box-shadow:
-    0 20px 50px rgba(0,0,0,0.35),
-    0 0 30px rgba(94,203,255,0.08);
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(94, 203, 255, 0.08);
 }
 
 
-/* ==========================================
+/* =========================================================
    STARS
-========================================== */
+========================================================= */
 
-.review-stars {
+.client-reviews-section .review-stars {
   color: #ffc857;
   font-size: 17px;
   letter-spacing: 2px;
@@ -1124,11 +1108,11 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    REVIEW TEXT
-========================================== */
+========================================================= */
 
-.review-text {
+.client-reviews-section .review-text {
   color: #c7ced8;
   font-size: 16px;
   line-height: 1.8;
@@ -1136,23 +1120,26 @@
 }
 
 
-/* ==========================================
-   CLIENT
-========================================== */
+/* =========================================================
+   CLIENT INFORMATION
+========================================================= */
 
-.review-client {
+.client-reviews-section .review-client {
   display: flex;
   align-items: center;
   gap: 14px;
 
   padding-top: 20px;
 
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 
-/* Avatar */
-.client-avatar {
+/* =========================================================
+   CLIENT AVATAR
+========================================================= */
+
+.client-reviews-section .client-avatar {
   width: 48px;
   height: 48px;
 
@@ -1162,16 +1149,22 @@
   align-items: center;
   justify-content: center;
 
-  background: Dark;
-  color: #07101d;
+  background: #070b14;
+
+  color: #ffffff;
 
   font-weight: 800;
   font-size: 14px;
+
+  flex-shrink: 0;
 }
 
 
-/* Name */
-.client-name {
+/* =========================================================
+   CLIENT NAME
+========================================================= */
+
+.client-reviews-section .client-name {
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
@@ -1180,16 +1173,19 @@
 }
 
 
-/* Role */
-.client-role {
+/* =========================================================
+   CLIENT ROLE
+========================================================= */
+
+.client-reviews-section .client-role {
   color: #7f8b9d;
   font-size: 13px;
 }
 
 
-/* ==========================================
+/* =========================================================
    MOBILE
-========================================== */
+========================================================= */
 
 @media (max-width: 767px) {
 
@@ -1198,20 +1194,20 @@
     padding-bottom: 60px !important;
   }
 
-  .review-card {
+  .client-reviews-section .review-card {
     padding: 25px;
   }
 
-  .reviews-title {
+  .client-reviews-section .reviews-title {
     font-size: 34px;
   }
 
-  .review-text {
+  .client-reviews-section .review-text {
     font-size: 15px;
   }
 
 }
-
+	
 </style>
 	
 </head>
@@ -1617,7 +1613,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Client Reviews Section -->
-<section class="client-reviews-section py-5">
+<section  class="client-reviews-section py-5">
   <div class="container">
 
     <!-- Section Header -->
