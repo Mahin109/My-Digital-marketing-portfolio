@@ -1214,7 +1214,7 @@
 
        <!-- How I Work -->
 
-		<section id="hiw-section" class="hiw-container">
+	<section id="hiw-section" class="hiw-container">
   <div class="hiw-wrapper">
     
     <!-- Section Header -->
@@ -1267,12 +1267,167 @@
 
     <!-- Roadmap Container -->
     <div id="hiw-roadmap-container" class="hiw-roadmap-box" role="tabpanel">
-      <!-- Roadmap Content (Populated via JS) -->
+      <!-- Roadmap will be loaded here -->
     </div>
 
   </div>
-        </section>
+</section>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const roadmapContainer = document.getElementById("hiw-roadmap-container");
+  const businessCards = document.querySelectorAll(".hiw-card");
+
+  const roadmaps = {
+
+    ecommerce: {
+      title: "E-commerce Growth Roadmap",
+      steps: [
+        "01 — Analyze your products, store, offer, pricing, and current performance.",
+        "02 — Research your ideal customers, buying behavior, competitors, and market demand.",
+        "03 — Develop strong offers, messaging, and creative angles that make products stand out.",
+        "04 — Launch Meta Ads with proper Pixel, tracking, conversion events, and campaign structure.",
+        "05 — Test different audiences, creatives, hooks, placements, and offers to find winners.",
+        "06 — Analyze CTR, CPC, CPA, Conversion Rate, and ROAS to identify what is actually working.",
+        "07 — Optimize, retarget, and scale the winning campaigns while protecting profitability."
+      ]
+    },
+
+    restaurant: {
+      title: "Restaurant / Food Business Roadmap",
+      steps: [
+        "01 — Understand your restaurant, location, menu, pricing, offers, and ideal customers.",
+        "02 — Research nearby competitors and identify what makes your restaurant different.",
+        "03 — Build local awareness using attractive food creatives, offers, and location-focused messaging.",
+        "04 — Target people around your service area and reach customers most likely to visit or order.",
+        "05 — Test different food creatives, offers, audiences, and campaign objectives.",
+        "06 — Track WhatsApp messages, calls, bookings, orders, and other meaningful customer actions.",
+        "07 — Retarget engaged customers and scale the campaigns that consistently bring profitable results."
+      ]
+    },
+
+    "local-service": {
+      title: "Local Service Business Roadmap",
+      steps: [
+        "01 — Understand your service, service area, pricing, customers, and business goals.",
+        "02 — Research local demand, competitors, customer pain points, and buying intent.",
+        "03 — Create a clear offer that communicates why customers should choose your service.",
+        "04 — Build trust-focused creatives using benefits, proof, testimonials, and strong calls-to-action.",
+        "05 — Target high-intent customers within the right locations and audience segments.",
+        "06 — Generate leads through WhatsApp, calls, instant forms, or your website.",
+        "07 — Optimize cost per lead and lead quality, then scale the campaigns bringing real customers."
+      ]
+    },
+
+    "lead-gen": {
+      title: "Lead Generation Roadmap",
+      steps: [
+        "01 — Understand your offer, ideal customer, sales process, and lead qualification criteria.",
+        "02 — Identify customer pain points, objections, motivations, and high-intent audience segments.",
+        "03 — Build a compelling lead offer that gives prospects a strong reason to take action.",
+        "04 — Create multiple hooks, ad angles, creatives, and messaging variations for testing.",
+        "05 — Launch lead campaigns with proper tracking and a clear conversion-focused funnel.",
+        "06 — Measure CPL, lead quality, conversion rate, and the actual value of generated leads.",
+        "07 — Remove weak performers, improve the funnel, and scale campaigns producing quality leads."
+      ]
+    },
+
+    "personal-brand": {
+      title: "Personal Brand / Creator Roadmap",
+      steps: [
+        "01 — Define your personal brand positioning, expertise, audience, and unique point of view.",
+        "02 — Research what your audience wants to learn, watch, discuss, and engage with.",
+        "03 — Build content pillars and creative directions that consistently communicate your expertise.",
+        "04 — Promote valuable content to build awareness, reach, engagement, and audience trust.",
+        "05 — Identify your best-performing content and amplify the topics and formats that work.",
+        "06 — Retarget engaged viewers and followers with stronger offers, services, or conversion content.",
+        "07 — Turn attention into followers, inquiries, clients, or other measurable business outcomes."
+      ]
+    },
+
+    education: {
+      title: "Online Course / Education Roadmap",
+      steps: [
+        "01 — Analyze your course, curriculum, target students, pricing, and learning outcomes.",
+        "02 — Research student pain points, goals, objections, competitors, and market demand.",
+        "03 — Develop a strong educational offer that clearly communicates the transformation students can achieve.",
+        "04 — Create educational, authority-building, testimonial, and problem-solution based creatives.",
+        "05 — Drive qualified traffic to your landing page, lead form, WhatsApp, or enrollment funnel.",
+        "06 — Track leads, registrations, conversion rate, cost per acquisition, and student quality.",
+        "07 — Optimize the funnel and scale the campaigns that consistently generate profitable enrollments."
+      ]
+    },
+
+    skincare: {
+      title: "Beauty / Skincare Business Roadmap",
+      steps: [
+        "01 — Analyze your products, ingredients, positioning, pricing, customers, and competitors.",
+        "02 — Identify customer concerns, desired outcomes, objections, and purchasing motivations.",
+        "03 — Create product-focused offers and messaging that clearly communicate the product's value.",
+        "04 — Test educational, lifestyle, testimonial, product-demo, and problem-solution creatives.",
+        "05 — Launch conversion campaigns with proper tracking and audience segmentation.",
+        "06 — Analyze CTR, CPC, CPA, conversion rate, ROAS, and product-level performance.",
+        "07 — Retarget interested customers, improve winning creatives, and scale profitable products."
+      ]
+    }
+
+  };
+
+
+  function showRoadmap(business) {
+
+    const roadmap = roadmaps[business];
+
+    if (!roadmap) return;
+
+    roadmapContainer.innerHTML = `
+      <div class="hiw-roadmap-content">
+        <h3>${roadmap.title}</h3>
+
+        <div class="hiw-roadmap-steps">
+          ${roadmap.steps.map(step => `
+            <div class="hiw-roadmap-step">
+              <span>${step}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+
+  // Load E-commerce roadmap by default
+  showRoadmap("ecommerce");
+
+
+  // Switch roadmap when clicking a business card
+  businessCards.forEach(card => {
+
+    card.addEventListener("click", function () {
+
+      const business = this.dataset.business;
+
+      // Remove active state
+      businessCards.forEach(item => {
+        item.classList.remove("hiw-card-active");
+        item.setAttribute("aria-selected", "false");
+      });
+
+      // Add active state
+      this.classList.add("hiw-card-active");
+      this.setAttribute("aria-selected", "true");
+
+      // Show selected roadmap
+      showRoadmap(business);
+
+    });
+
+  });
+
+});
+</script>
    
 
         <!-- 6. CLIENT REVIEWS SECTION -->
